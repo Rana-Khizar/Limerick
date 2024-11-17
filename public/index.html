@@ -10,11 +10,29 @@
       content="Web site created using create-react-app"
     />
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+
     <!--
       manifest.json provides metadata used when your web app is installed on a
       user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
     -->
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        const menuIcon = document.querySelector('.menu-icon');
+        const menu = document.querySelector('.menu');
+        
+        menuIcon.addEventListener('click', function () {
+          menu.classList.toggle('show-menu');
+        });
+        
+        document.addEventListener('click', function (event) {
+          if (!menuIcon.contains(event.target) && !menu.contains(event.target)) {
+            menu.classList.remove('show-menu');
+          }
+        });
+      });
+    </script>
     <!--
       Notice the use of %PUBLIC_URL% in the tags above.
       It will be replaced with the URL of the `public` folder during the build.
